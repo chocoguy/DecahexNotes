@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "backend", "backend\backend.csproj", "{25D651BA-052A-455F-B8B8-930FFF9BF93C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "grpcbackend", "grpcbackend\grpcbackend.csproj", "{7C1B55F1-8DF4-45DE-BD51-FECF2B502453}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25D651BA-052A-455F-B8B8-930FFF9BF93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25D651BA-052A-455F-B8B8-930FFF9BF93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25D651BA-052A-455F-B8B8-930FFF9BF93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25D651BA-052A-455F-B8B8-930FFF9BF93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C1B55F1-8DF4-45DE-BD51-FECF2B502453}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C1B55F1-8DF4-45DE-BD51-FECF2B502453}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C1B55F1-8DF4-45DE-BD51-FECF2B502453}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C1B55F1-8DF4-45DE-BD51-FECF2B502453}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9909B9D4-20D4-445F-9A66-15FCECEE1EB4}
+	EndGlobalSection
+EndGlobal

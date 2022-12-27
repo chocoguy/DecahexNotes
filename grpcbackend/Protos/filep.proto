@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "grpcbackend";
+
+package filep;
+
+service Filep {
+	rpc GetPublicFiles (emptyFileRequest) returns (stream FileModel);
+}
+
+message emptyFileRequest{
+
+}
+
+
+message FileModel {
+	string _id = 1;
+	int32 file_id = 2;
+	int32 user_id = 3;
+	string title = 4;
+	string link = 5;
+	string visibility = 6;
+	string share_key = 7;
+	google.protobuf.Timestamp added = 8;
+	int32 views = 9;
+	int32 size = 10;
+	string file_type = 11;
+}
