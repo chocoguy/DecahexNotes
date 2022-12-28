@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <None Remove="Protos\filep.proto" />
+    <None Remove="Protos\notep.proto" />
   </ItemGroup>
 
   <ItemGroup>
     <Protobuf Include="Protos\filep.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\notep.proto" GrpcServices="Server" />
   </ItemGroup>
 
   <ItemGroup>

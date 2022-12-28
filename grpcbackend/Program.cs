@@ -38,6 +38,7 @@ builder.Services.AddSingleton<DB>();
 var app = builder.Build();
 
 app.MapGrpcService<FileService>();
+app.MapGrpcService<NoteService>();
 app.MapGet("/", () => "Hello there!");
 
 app.UseHttpsRedirection();

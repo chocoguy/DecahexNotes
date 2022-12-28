@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "grpcbackend";
+
+package notep;
+
+service Notep {
+	rpc GetPublicNotes (EmptyNoteRequest) returns (stream NoteModel);
+	rpc GetPrivateNotes (EmptyNoteRequest) returns (stream NoteModel);
+	rpc GetPublicNote (IdNoteRequest) returns (NoteModel);
+	rpc GetPrivateNote (IdNoteRequest) returns (NoteModel);
+	rpc GetSharekeyNote (SharekeyNoteRequest) returns (NoteModel);
+	rpc CreateNote (CreateNoteRequest) returns (NoteBool);
+	rpc UpdateNote (UpdateNoteRequest) returns (NoteBool);
+	rpc RemoveNote (IdNoteRequest) returns (NoteBool);
+	rpc GenerateSharekey (IdNoteRequest) returns (NoteSharekey);
+	rpc RemoveSharekey (IdNoteRequest) returns (NoteBool);
+	rpc UpdateViewCount (IdNoteRequest) returns (NoteBool);
+}
+
+message EmptyNoteRequest{
+
+}
+
+message IdNoteRequest{
+	int32 id = 1;
+}
+
+message CreateNoteRequest{
+	int32 user_id = 1;
+	string title = 2;
+	string content = 3;
+	string visibility = 4;
+	string share_key = 5;
+}
+
+message UpdateNoteRequest{
+	int32 id = 1;
+	string title = 2;
+	string content = 3;
+	string visibility = 4;
+	string share_key = 5;
+}
+
+message SharekeyNoteRequest{
+	string share_key = 1;
+}
+
+
+
+
+message NoteSharekey{
+	string share_key = 1;
+}
+
+message NoteBool {
+	bool is_success = 1;
+}
+
+message NoteModel {
+	string id = 1;
+	int32 note_id = 2;
+	int32 user_id = 3;
+	string title = 4;
+	string content = 5;
+	string visibility = 6;
+	string share_key = 7;
+	google.protobuf.Timestamp added = 8;
+	google.protobuf.Timestamp edited = 9;
+	int32 views = 10;
+
+}
+

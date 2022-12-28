@@ -7,11 +7,66 @@ option csharp_namespace = "grpcbackend";
 package filep;
 
 service Filep {
-	rpc GetPublicFiles (emptyFileRequest) returns (stream FileModel);
+	rpc GetPublicFiles (EmptyFileRequest) returns (stream FileModel);
+	rpc GetPrivateFiles (EmptyFileRequest) returns (stream FileModel);
+	rpc GetPublicFile (IdFileRequest) returns (FileModel);
+	rpc GetPrivateFile (IdFileRequest) returns (FileModel);
+	rpc GetSharekeyFile (SharekeyFileRequest) returns (FileModel);
+	rpc CreateFilePart1 (CreateFileRequestPart1) returns (CreateFilePresignedInfo);
+	rpc CreateFilePart2 (CreateFileRequestPart2) returns (FileBool);
+	rpc UpdateFile (CreateFileRequestPart2) returns (FileBool);
+	rpc RemoveFile (IdFileRequest) returns (FileBool);
+	rpc GenerateSharekey (IdFileRequest) returns (FileSharekey);
+	rpc RemoveSharekey (IdFileRequest) returns (FileBool);
+	rpc UpdateViewCount (IdFileRequest) returns (FileBool);
+
 }
 
-message emptyFileRequest{
 
+
+
+message IdFileRequest{
+	int32 id = 1;
+}
+
+message SharekeyFileRequest{
+	string share_key = 1;
+}
+
+
+message EmptyFileRequest{
+
+}
+
+
+message CreateFileRequestPart1{
+	int32 user_id = 1;
+}
+
+message CreateFileRequestPart2{
+	int32 user_id = 1;
+	string title = 2;
+	string link = 3;
+	string visibility = 4;
+	string share_key = 5;
+	int32 size = 6;
+	string file_type = 7;
+}
+
+
+
+
+
+message FileSharekey{
+	string share_key = 1;
+}
+
+message CreateFilePresignedInfo{
+	string presigned_url = 1;
+}
+
+message FileBool {
+	bool is_success = 1;
 }
 
 
